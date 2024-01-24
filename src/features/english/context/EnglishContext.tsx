@@ -1,8 +1,8 @@
-import { Dispatch, SetStateAction, createContext, useState } from "react";
+import { Dispatch, SetStateAction, createContext, useContext, useState } from "react";
 import { Prop } from "@/common/model/types";
 import { Book } from "@/features/english/model/types";
 
-export type EnglishContextType = {
+type EnglishContextType = {
     showBook: boolean,
     editBook: Book,
     setShowBook: Dispatch<SetStateAction<boolean>>,
@@ -10,7 +10,9 @@ export type EnglishContextType = {
     resetEditBook: () => void
 }
 
-export const EnglishContext = createContext<EnglishContextType | null>(null)
+const EnglishContext = createContext<EnglishContextType | null>(null)
+
+export const useEnglishContext = () => useContext(EnglishContext) as EnglishContextType
 
 const EnglishProvider = ({children}: Prop) => {
 

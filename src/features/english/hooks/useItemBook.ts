@@ -1,15 +1,15 @@
-import { ChangeEvent, useContext } from "react";
+import { ChangeEvent } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import dayjs from 'dayjs'
 
 import { Book } from "@/features/english/model/types";
 import { queryKeys } from "@/features/english/model/constants";
-import { EnglishContext, EnglishContextType } from "@/features/english/context/EnglishContext";
+import { useEnglishContext } from "@/features/english/context/EnglishContext";
 import { createBook, updateBook } from "@/features/english/services/BookService";
 
-export const usePersistBook = () => {
+export const useItemBook = () => {
    
-    const { showBook, editBook, setShowBook, setEditBook, resetEditBook } = useContext(EnglishContext)  as EnglishContextType
+    const { showBook, editBook, setShowBook, setEditBook, resetEditBook } = useEnglishContext()
     
     const queryClient = useQueryClient()
     const mutation = useMutation(

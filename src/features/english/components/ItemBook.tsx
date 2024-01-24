@@ -1,7 +1,7 @@
 import { ActionIcon, Group, TextInput } from "@mantine/core";
 import { IconCheck, IconPlus, IconX } from "@tabler/icons-react";
 
-import { usePersistBook } from "@/features/english/hooks/usePersistBook";
+import { useItemBook } from "@/features/english/hooks/useItemBook";
 
 const ItemBook = () => {
 
@@ -11,7 +11,7 @@ const ItemBook = () => {
         handleSubmit, 
         handleAdd, 
         handleCancel, 
-        handleChangeTitle } = usePersistBook()
+        handleChangeTitle } = useItemBook()
 
     
     return ( <Group>

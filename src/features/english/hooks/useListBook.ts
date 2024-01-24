@@ -1,14 +1,13 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
-import { useContext } from "react";
 import { modals } from "@mantine/modals";
 
 import { Book } from "@/features/english/model/types";
 import { queryKeys } from "@/features/english/model/constants";
-import { EnglishContext, EnglishContextType } from "@/features/english/context/EnglishContext";
+import { useEnglishContext } from "@/features/english/context/EnglishContext";
 import { deleteBook, fetchBook } from "@/features/english/services/BookService";
 
-export const useQueryBook = () => {
-    const { showBook, editBook, setShowBook, setEditBook } = useContext(EnglishContext)  as EnglishContextType
+export const useListBook = () => {
+    const { showBook, editBook, setShowBook, setEditBook } = useEnglishContext()
     const queryClient = useQueryClient()
     const { data: books, isLoading, error } = useQuery({
         queryKey: queryKeys.groups, 

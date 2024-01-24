@@ -1,12 +1,12 @@
 import { ActionIcon, List, UnstyledButton } from "@mantine/core";
 import { IconPencil, IconTrash } from "@tabler/icons-react";
 
-import { useQueryBook } from "@/features/english/hooks/useQueryBook";
+import { useListBook } from "@/features/english/hooks/useListBook";
 import ItemBook from "@/features/english/components/ItemBook";
 
 const ListBook = () => {
 
-    const { books, isLoading, error, handleShowEdit, handleDelete } = useQueryBook();
+    const { books, isLoading, error, handleShowEdit, handleDelete } = useListBook();
 
     if (isLoading) return 'Loading...';
     if (error instanceof Error) return `An error occurred ${error.message}`;  
